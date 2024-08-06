@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        .output { margin-top: 20px; }
+        button { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Analyzer Tool</h1>
+        <textarea id="inputText" rows="6" cols="50" placeholder="Enter your text here..."></textarea>
+        <div>
+            <button onclick="countWords()">Count Words</button>
+            <button onclick="convertToLower()">To Lowercase</button>
+            <button onclick="convertToUpper()">To Uppercase</button>
+            <button onclick="checkSubstring()">Check Substring</button>
+        </div>
+        <div class="output">
+            <p id="result"></p>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    function countWords() {
+    const text = document.getElementById("inputText").value;
+    const wordCount = text.trim().split(/\s+/).length;
+    document.getElementById("result").innerText = `Word Count: ${wordCount}`;
+}
+
+function convertToLower() {
+    const text = document.getElementById("inputText").value;
+    const lowerText = text.toLowerCase();
+    document.getElementById("result").innerText = `Lowercase Text: ${lowerText}`;
+}
+
+function convertToUpper() {
+    const text = document.getElementById("inputText").value;
+    const upperText = text.toUpperCase();
+    document.getElementById("result").innerText = `Uppercase Text: ${upperText}`;
+}
+
+function checkSubstring() {
+    const text = document.getElementById("inputText").value;
+    const substring = prompt("Enter the substring to check:");
+    const containsSubstring = text.includes(substring);
+    document.getElementById("result").innerText = containsSubstring ? `The text contains "${substring}".` : `The text does not contain "${substring}".`;
+}
+
+</script>
